@@ -1,13 +1,11 @@
 public class Main{
     public static void main(String [] args) {
-        String str1= "Rahul";
-        String str2= new String("Rahul");
-        String str3= new String("Rahul");
-        String str4= "Rahul";
-
-        System.out.println(str1==str4);
-        System.out.println(str2==str3);
-        System.out.println(str1==str2);
-        System.out.println(str3.equals(str2));
-    }
+        int[] array ={32,23,234};
+        try{
+            System.out.println(array[2]/0);
+        }catch(Exception expt1){
+            System.out.println(expt1);
+        }
+        System.out.println("hi");
+   }
 }
