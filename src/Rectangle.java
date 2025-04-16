@@ -1,13 +1,16 @@
 public class Rectangle{
     float l;
-    float b;
-    public Rectangle(float l, float b){
+    public Rectangle(){
+        this(12.0f,12);
+        System.out.println(this.l);
+    }
+    public Rectangle(float l,float b){
         this.l=l;
-        this.b=b;
+
         System.out.println(this.l+" from Constructor 1");
     }
 
     public float Area(){
-        return this.l*this.b;
+        return this.l;
     }
 }
