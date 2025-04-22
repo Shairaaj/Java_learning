@@ -4,11 +4,25 @@ public class Main {
       Scanner sc = new Scanner(System.in);
       System.out.println("Enter the number: ");
       int num = sc.nextInt();
-      System.out.println(checkPrime(num));
+      ArrayList <Integer> array= new ArrayList<>();
+      array=checkPrime(num);
+      System.out.println(array);
    }
-   public static boolean checkPrime(int num){
-      if(num%2==0 || num%3==0 || num%5==0 || num%7==0){
-         return false;
-      }return true;
+   public static ArrayList<Integer> checkPrime(int num){
+      ArrayList <Integer> arr= new ArrayList<>();
+      int j=0;
+      for(int i=2; i<=num; ++i){
+         if(i==2 || i==3 || i==5 || i==7){
+            continue;
+         }
+         if(i%2==0 || i%3==0 || i%5==0 || i%7==0){
+            continue;
+         }
+         else{
+            arr.add(i);
+            ++j;
+         }
+      }
+      return arr;
    }
 }
