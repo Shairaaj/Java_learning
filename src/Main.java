@@ -2,23 +2,29 @@ import java.util.*;
 public class Main {
    public static void main(String[] args){
       Scanner sc= new Scanner(System.in);
-      System.out.println("Enter the string: ");
-      String st= sc.nextLine();
-      String str= st.toUpperCase();
-      ArrayList<Character> arr= new ArrayList<>();
-      for (int i=0; i<str.length(); i++){
-         arr.add(str.charAt(i));
+      System.out.println("Enter the number: ");
+      int num= sc.nextInt();
+
+      String str = Integer.toString(num);
+      ArrayList<Integer> arr = new ArrayList<>();
+      for (int i = 0; i < str.length(); i++) {
+         int temp;
+         temp=str.charAt(i)-'0';
+         arr.add(temp);
       }
-      System.out.println(arr);
-      String pal=(isPalindrome(arr)?"The given string "+st+" is palindrome":"The given string "+st+" is not palindrome");
-      System.out.println(pal);
-      }
-   public static boolean isPalindrome(ArrayList<Character>arr){
+      System.out.println("The array is:"+arr);
+
+      String arm=isAmstrong(arr,num)?"The given number "+num+" is an armstrong number":"The given number "+num+" is not an Armstrong number";
+      System.out.println(arm);
+
+   }
+   public static boolean isAmstrong(ArrayList<Integer> arr,int num) {
       int n=arr.size();
-      for(int i=0;i<n/2;i++){
-         if(arr.get(i)!=arr.get(n-1-i)){
-            return false;
-         }
-      }return true;
+      long temp=0;
+      for (int i:arr){
+         temp= (long)((Math.pow(i,n))+temp);
+         System.out.println(temp);
+      }
+      return num==temp;
    }
 }
