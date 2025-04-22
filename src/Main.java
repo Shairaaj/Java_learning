@@ -1,22 +1,25 @@
-import java.util.Scanner;
-
+import java.util.*;
 public class Main{
    public static void main(String [] args) {
       Scanner sc= new Scanner(System.in);
       System.out.println("Enter the number");
       int num= sc.nextInt();
 
-      int num1=0;
-      int num2=1;
-      int n=0;
-      System.out.println("The number "+(n++)+ " is "+num1);
-      System.out.println("The number "+(n++)+ " is "+num2);
-      int temp=0;
-      for(int i=num-1; i>0; i--){
-         temp = num1 + num2;
-         System.out.println("The number " + (n++) + " is " + temp);
-         num1=num2;
-         num2=temp;
+      String str= Integer.toString(num); //Converted to String
+      System.out.println(str.length());
+      int arr[] = new int[str.length()]; //Initialized an array
+      for (int i=0; i< arr.length; i++)   {
+         arr[i]= str.charAt(i)-'0';
+         System.out.println(arr[i]);
       }
+      System.out.println("The array is "+ Arrays.toString(arr));
+      System.out.println(sumDigits(arr));
+      }
+      public static int sumDigits(int[] arr){
+      int temp=0;
+      for(int i=0; i<arr.length; i++){
+         temp=arr[i]+temp;
+      }
+      return temp;
    }
 }
