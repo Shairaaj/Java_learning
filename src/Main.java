@@ -4,7 +4,10 @@ public class Main {
       Scanner sc = new Scanner(System.in);
       System.out.println("Enter the number: ");
       int num = sc.nextInt();
-      String str= Integer.toString(num);
+      String st= Integer.toString(num);
+      System.out.println(st);
+      boolean isNegative=st.startsWith("-");
+      String str= isNegative?st.substring(1):st;
       ArrayList<Integer> arr= new ArrayList<>();
       for (int i=0; i<str.length(); i++){
          int temp=0;
@@ -14,6 +17,9 @@ public class Main {
       System.out.println(arr);
 
       int number= reverseNumber(arr);
+      if(isNegative){
+         number=number*-1;
+      }
       System.out.println("The reversed number for "+num+ " is "+number);
    }
    public static int reverseNumber(ArrayList<Integer> arr){
