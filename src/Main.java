@@ -1,30 +1,31 @@
 import java.util.*;
 public class Main {
-   public static void main(String[] args){
-      Scanner sc= new Scanner(System.in);
+   public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
       System.out.println("Enter the number: ");
-      int num= sc.nextInt();
-
-      String str = Integer.toString(num);
-      ArrayList<Integer> arr = new ArrayList<>();
-      for (int i = 0; i < str.length(); i++) {
-         int temp;
+      int num = sc.nextInt();
+      String str= Integer.toString(num);
+      ArrayList<Integer> arr= new ArrayList<>();
+      for (int i=0; i<str.length(); i++){
+         int temp=0;
          temp=str.charAt(i)-'0';
          arr.add(temp);
       }
-      System.out.println("The array is:"+arr);
+      System.out.println(arr);
 
-      String arm=isAmstrong(arr,num)?"The given number "+num+" is an armstrong number":"The given number "+num+" is not an Armstrong number";
-      System.out.println(arm);
-
+      int number= reverseNumber(arr);
+      System.out.println("The reversed number for "+num+ " is "+number);
    }
-   public static boolean isAmstrong(ArrayList<Integer> arr,int num) {
-      int n=arr.size();
-      long temp=0;
-      for (int i:arr){
-         temp= (long)((Math.pow(i,n))+temp);
-         System.out.println(temp);
+   public static int reverseNumber(ArrayList<Integer> arr){
+      ArrayList <Integer>array= new ArrayList<>();
+      for(int i= arr.size()-1; i>=0;i--) {
+         array.add(arr.get(i));
       }
-      return num==temp;
+      System.out.println(array);
+      int num=0;
+      for (int digit:array){
+         num=num*10+digit;
+      }
+      return num;
    }
 }
