@@ -4,22 +4,11 @@ public class Main {
       Scanner sc = new Scanner(System.in);
       System.out.println("Enter the number: ");
       int num = sc.nextInt();
-
-      String st= Integer.toString(num);
-      int [] arr= new int[st.length()];
-      for (int i=0;i<arr.length; i++){
-         arr[i]=st.charAt(i)-'0';
-      }
-      int greatest= greatestNum(arr);
-      System.out.println("The greatest number is: "+greatest);
+      System.out.println(checkPrime(num));
    }
-   public static int greatestNum(int[] arr){
-      int greatest =arr[0];
-      for(int digit: arr){
-         if(digit>=greatest){
-            greatest=digit;
-         }
-      }
-      return greatest;
+   public static boolean checkPrime(int num){
+      if(num%2==0 || num%3==0 || num%5==0 || num%7==0){
+         return false;
+      }return true;
    }
 }
