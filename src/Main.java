@@ -1,25 +1,24 @@
 import java.util.*;
-public class Main{
-   public static void main(String [] args) {
+public class Main {
+   public static void main(String[] args){
       Scanner sc= new Scanner(System.in);
-      System.out.println("Enter the number");
-      int num= sc.nextInt();
-
-      String str= Integer.toString(num); //Converted to String
-      System.out.println(str.length());
-      int arr[] = new int[str.length()]; //Initialized an array
-      for (int i=0; i< arr.length; i++)   {
-         arr[i]= str.charAt(i)-'0';
-         System.out.println(arr[i]);
+      System.out.println("Enter the string: ");
+      String st= sc.nextLine();
+      String str= st.toUpperCase();
+      ArrayList<Character> arr= new ArrayList<>();
+      for (int i=0; i<str.length(); i++){
+         arr.add(str.charAt(i));
       }
-      System.out.println("The array is "+ Arrays.toString(arr));
-      System.out.println(sumDigits(arr));
+      System.out.println(arr);
+      String pal=(isPalindrome(arr)?"The given string "+st+" is palindrome":"The given string "+st+" is not palindrome");
+      System.out.println(pal);
       }
-      public static int sumDigits(int[] arr){
-      int temp=0;
-      for(int i=0; i<arr.length; i++){
-         temp=arr[i]+temp;
-      }
-      return temp;
+   public static boolean isPalindrome(ArrayList<Character>arr){
+      int n=arr.size();
+      for(int i=0;i<n/2;i++){
+         if(arr.get(i)!=arr.get(n-1-i)){
+            return false;
+         }
+      }return true;
    }
 }
