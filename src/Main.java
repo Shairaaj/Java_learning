@@ -8,11 +8,13 @@ public class Main {
       int num2= sc.nextInt();
 
       System.out.println(num1+" "+num2);
+      // 10    ,     7
+      num2= num1+num2; //17
+      num1=num2-num1;  //7
+      num2= num2-num1;
 
-      int temp=0;
-      temp=num1;
-      num1=num2;
-      num2=temp;
+
+
 
       System.out.println(num1+" "+num2);
    }
