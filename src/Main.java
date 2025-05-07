@@ -1,22 +1,43 @@
 import java.util.*;
 public class Main {
    public static void main(String[] args){
-      int[] nums={1,1,1,2,2,3};
-      int k=2;
-      HashMap<Integer,Integer> hashMap= new HashMap<>();
-      for(int num: nums){
-         hashMap.put(num, hashMap.getOrDefault(num,0)+1);
+      String[] str= new String[]{"neat","code","love","you"};
+      String convStr= encode(str);
+      System.out.println(convStr);
+      String[] deStr= decode(convStr,str.length);
+   }
+   public static String encode(String[] str){
+      StringBuilder stb= new StringBuilder();
+      for(String s: str){
+         int n= s.length();
+         stb.append(n);
+         stb.append(s);
+         stb.append('#');
       }
-      System.out.println(hashMap);
-      List<int[]>list= new ArrayList<>();
-      for(Map.Entry<Integer,Integer> entry: hashMap.entrySet()){
-         list.add(new int[]{entry.getValue(),entry.getKey()});
+      return new String(stb);
+   }
+   public static String[] decode(String str,int n){
+      String[] res= new String[n];
+      System.out.println(str.length());
+      int pos=0; int i=0; int skip= str.charAt(pos)-'0'; int range=0; range=skip;
+      while(range<str.length()) {
+         if (str.charAt(range + 1) == '#') {
+            String subStr = str.substring(pos + 1, range+1);
+            res[i] = subStr;
+            System.out.println(Arrays.toString(res));
+            i++;
+         }
+         if(i<n){
+         pos=range+2;
+         System.out.println("First value:"+pos);
+         skip = str.charAt(range+2)-'0';
+         System.out.println("Skip value: "+skip);
+         range=range+skip+2;
       }
-      list.sort((a,b)->(b[0]-a[0]));
-      int[] arr= new int[k];
-      for(int i=0; i<k; i++){
-         arr[i]=list.get(i)[1];
+         else{
+            break;
+         }
       }
-      System.out.println(Arrays.toString(arr));
+      return res;
    }
 }
