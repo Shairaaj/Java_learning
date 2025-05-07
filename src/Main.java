@@ -1,18 +1,22 @@
 import java.util.*;
 public class Main {
-   public static void main(String[] args) {
-       int num=30;
-       int count=0;
-       for(int i=1; i<=num; i++){
-           String n=Integer.toString(i);
-           int sum=0;
-           for(int j=0;j<n.length();j++){
-               sum+=n.charAt(j)-'0';
-           }
-           if(sum%2==0){
-               ++count;
-           }
-       }
-       System.out.println(count);
+   public static void main(String[] args){
+      int[] nums={1,1,1,2,2,3};
+      int k=2;
+      HashMap<Integer,Integer> hashMap= new HashMap<>();
+      for(int num: nums){
+         hashMap.put(num, hashMap.getOrDefault(num,0)+1);
+      }
+      System.out.println(hashMap);
+      List<int[]>list= new ArrayList<>();
+      for(Map.Entry<Integer,Integer> entry: hashMap.entrySet()){
+         list.add(new int[]{entry.getValue(),entry.getKey()});
+      }
+      list.sort((a,b)->(b[0]-a[0]));
+      int[] arr= new int[k];
+      for(int i=0; i<k; i++){
+         arr[i]=list.get(i)[1];
+      }
+      System.out.println(Arrays.toString(arr));
    }
 }
